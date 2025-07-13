@@ -39,49 +39,54 @@ function renderMalla() {
   const contenedor = document.getElementById("malla");
   contenedor.innerHTML = "";
 
-  // Obtener semestres únicos ordenados
-  const semestres = [...new Set(cursos.map(c => c.semestre))].sort((a, b) => a - b);
+  const totalSemestres = Math.max(...cursos.map(c => c.semestre));
+  const progresoSet = new Set(progreso);
 
-  semestres.forEach(semestre => {
-    // Crear contenedor semestre
-    const divSemestre = document.createElement("div");
-    divSemestre.classList.add("semestre");
+  // Agrupar de 2 en 2 semestres
+  for (let i = 1; i <= totalSemestres; i += 2) {
+    const filaAnio = document.createElement("div");
+    filaAnio.classList.add("anio");
 
-    // Título semestre
-    const titulo = document.createElement("h2");
-    titulo.textContent = `Semestre ${semestre}`;
-    divSemestre.appendChild(titulo);
+    // Semestre i y i+1
+    for (let s = i; s <= i + 1 && s <= totalSemestres; s++) {
+      const divSemestre = document.createElement("div");
+      divSemestre.classList.add("semestre");
 
-    // Filtrar cursos de ese semestre
-    const cursosSemestre = cursos.filter(c => c.semestre === semestre);
+      const titulo = document.createElement("h2");
+      titulo.textContent = `Semestre ${s}`;
+      divSemestre.appendChild(titulo);
 
-    // Crear contenedor cursos semestre
-    const cursosDiv = document.createElement("div");
-    cursosDiv.classList.add("cursos-semestre");
+      const cursosDiv = document.createElement("div");
+      cursosDiv.classList.add("cursos-semestre");
 
-    cursosSemestre.forEach(curso => {
-      const div = document.createElement("div");
-      div.classList.add("curso");
+      const cursosSemestre = cursos.filter(c => c.semestre === s);
 
-      const todosCumplidos = curso.prerequisitos.every(pr => progreso.includes(pr));
-      const yaAprobado = progreso.includes(curso.id);
+      cursosSemestre.forEach(curso => {
+        const div = document.createElement("div");
+        div.classList.add("curso");
 
-      if (yaAprobado) {
-        div.classList.add("aprobado");
-      } else if (todosCumplidos) {
-        div.classList.add("disponible");
-        div.onclick = () => marcarAprobado(curso.id);
-      } else {
-        div.classList.add("bloqueado");
-      }
+        const todosCumplidos = curso.prerequisitos.every(pr => progresoSet.has(pr));
+        const yaAprobado = progresoSet.has(curso.id);
 
-      div.textContent = curso.nombre;
-      cursosDiv.appendChild(div);
-    });
+        if (yaAprobado) {
+          div.classList.add("aprobado");
+        } else if (todosCumplidos) {
+          div.classList.add("disponible");
+          div.onclick = () => marcarAprobado(curso.id);
+        } else {
+          div.classList.add("bloqueado");
+        }
 
-    divSemestre.appendChild(cursosDiv);
-    contenedor.appendChild(divSemestre);
-  });
+        div.textContent = curso.nombre;
+        cursosDiv.appendChild(div);
+      });
+
+      divSemestre.appendChild(cursosDiv);
+      filaAnio.appendChild(divSemestre);
+    }
+
+    contenedor.appendChild(filaAnio);
+  }
 }
 
 function marcarAprobado(id) {
