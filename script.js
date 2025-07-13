@@ -1,9 +1,9 @@
 const cursos = [
-  { id: "calculo1", nombre: "Cálculo I", prerequisitos: [] },
-  { id: "algebra", nombre: "Álgebra", prerequisitos: [] },
-  { id: "calculo2", nombre: "Cálculo II", prerequisitos: ["calculo1"] },
-  { id: "fisica", nombre: "Física", prerequisitos: ["calculo1", "algebra"] },
-  { id: "ecuaciones", nombre: "Ecuaciones Dif.", prerequisitos: ["calculo2"] },
+  { id: "introalcalculo", nombre: "Introducción al Cálculo", prerequisitos: [] },
+  { id: "introalalgebra", nombre: "Introducción al Álgebra", prerequisitos: [] },
+  { id: "introprogra", nombre: "Introducción a la Programación", prerequisitos: [] },
+  { id: "filo", nombre: "Filosofía, ¿para qué?", prerequisitos: [] },
+  { id: "taller", nombre: "Taller de Matemáticas para Estadística", prerequisitos: [] },
 ];
 
 let progreso = JSON.parse(localStorage.getItem("progreso")) || [];
