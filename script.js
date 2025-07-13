@@ -8,29 +8,29 @@ const cursos = [
   { id: "algebralinealcd", nombre: "Álgebra Lineal para Ciencias de Datos", prerequisitos: ["introprogra", "introalcalculo", "introalalgebra"], semestre: 2 },
   { id: "calculo1", nombre: "Cálculo I", prerequisitos: ["introalcalculo"], semestre: 2 },
   { id: "matesdiscretas", nombre: "Matemáticas Discretas", prerequisitos: ["algebralinealcd"], semestre: 3 },
-  { id: "calculocd", nombre: "Cálculo para Ciencia de Datos", prerequisitos: ["calculo1", "algebralinealcd"], semestre: 3 }
-  { id: "algebralinealavanzada", nombre: "Álgebra Lineal Avanzada y Modelamiento", prerequisitos: ["algebralinealcd", "calculo1"], semestre: 3 }
-  { id: "etica", nombre: "Ética para Ciencia de Datos y Estadística", prerequisitos: ["introciencias", "progra"], semestre: 3 }
-  { id: "modelosprobabilisticos", nombre: "Modelos Probabilísticos", prerequisitos: ["calculocd", "algebralinealavanzada"], semestre: 4 }
-  { id: "datosyalg", nombre: "Estructuras de Datos y Algoritmos", prerequisitos: ["matesdiscretas", "progra"], semestre: 4 }
-  { id: "bdd", nombre: "Bases de Datos", prerequisitos: ["progra"], semestre: 4 }
-  { id: "opti", nombre: "Optimización para Ciencia de Datos", prerequisitos: ["algebralinealcd", "calculocd"], semestre: 4 }
-  { id: "inferencia", nombre: "Inferencia Estadística", prerequisitos: ["modelosprobabilisticos"], semestre: 5 }
-  { id: "ia", nombre: "Inteligencia Artificial", prerequisitos: ["modelosprobabilisticos", "progra"], semestre: 5 }
-  { id: "procdm", nombre: "Procesamiento Datos Masivos", prerequisitos: ["bdd", "datosyalg"], semestre: 5 }
-  { id: "opr1", nombre: "OPR o MINOR", prerequisitos: [], semestre: 5 }
-  { id: "pea", nombre: "Procesos Estocásticos Aplicados", prerequisitos: ["inferencia"], semestre: 6 }
-  { id: "analisis", nombre: "Análisis de Regresión", prerequisitos: ["inferencia"], semestre: 6 }
-  { id: "visinf", nombre: "Visualización de Información", prerequisitos: ["introprogra"], semestre: 6 }
-  { id: "mineria", nombre: "Minería de Datos", prerequisitos: ["introprogra", "modelosprobabilisticos", "algebralinealcd"], semestre: 6 }
-  { id: "simes", nombre: "Simulación Estocástica", prerequisitos: ["pea"], semestre: 7 }
-  { id: "metodos", nombre: "Métodos Bayesianos", prerequisitos: ["inferencia"], semestre: 7 }
-  { id: "taa", nombre: "Teoría de Aprendizaje Automático", prerequisitos: ["inferencia", "opti", "procdm"], semestre: 7 }
-  { id: "opr2", nombre: "OPR o MINOR", prerequisitos: [], semestre: 7 }
-  { id: "graduacion", nombre: "Proyecto de Graduación", prerequisitos: ["etica", "opti", "taa", "metodos"], semestre: 8 }
-  { id: "opr3", nombre: "OPR o MINOR", prerequisitos: [], semestre: 8 }
-  { id: "opr4", nombre: "OPR o MINOR", prerequisitos: [], semestre: 8 }
-  { id: "opr5", nombre: "OPR o MINOR", prerequisitos: [], semestre: 8 }
+  { id: "calculocd", nombre: "Cálculo para Ciencia de Datos", prerequisitos: ["calculo1", "algebralinealcd"], semestre: 3 },
+  { id: "algebralinealavanzada", nombre: "Álgebra Lineal Avanzada y Modelamiento", prerequisitos: ["algebralinealcd", "calculo1"], semestre: 3 },
+  { id: "etica", nombre: "Ética para Ciencia de Datos y Estadística", prerequisitos: ["introciencias", "progra"], semestre: 3 },
+  { id: "modelosprobabilisticos", nombre: "Modelos Probabilísticos", prerequisitos: ["calculocd", "algebralinealavanzada"], semestre: 4 },
+  { id: "datosyalg", nombre: "Estructuras de Datos y Algoritmos", prerequisitos: ["matesdiscretas", "progra"], semestre: 4 },
+  { id: "bdd", nombre: "Bases de Datos", prerequisitos: ["progra"], semestre: 4 },
+  { id: "opti", nombre: "Optimización para Ciencia de Datos", prerequisitos: ["algebralinealcd", "calculocd"], semestre: 4 },
+  { id: "inferencia", nombre: "Inferencia Estadística", prerequisitos: ["modelosprobabilisticos"], semestre: 5 },
+  { id: "ia", nombre: "Inteligencia Artificial", prerequisitos: ["modelosprobabilisticos", "progra"], semestre: 5 },
+  { id: "procdm", nombre: "Procesamiento Datos Masivos", prerequisitos: ["bdd", "datosyalg"], semestre: 5 },
+  { id: "opr1", nombre: "OPR o MINOR", prerequisitos: [], semestre: 5 },
+  { id: "pea", nombre: "Procesos Estocásticos Aplicados", prerequisitos: ["inferencia"], semestre: 6 },
+  { id: "analisis", nombre: "Análisis de Regresión", prerequisitos: ["inferencia"], semestre: 6 },
+  { id: "visinf", nombre: "Visualización de Información", prerequisitos: ["introprogra"], semestre: 6 },
+  { id: "mineria", nombre: "Minería de Datos", prerequisitos: ["introprogra", "modelosprobabilisticos", "algebralinealcd"], semestre: 6 },
+  { id: "simes", nombre: "Simulación Estocástica", prerequisitos: ["pea"], semestre: 7 },
+  { id: "metodos", nombre: "Métodos Bayesianos", prerequisitos: ["inferencia"], semestre: 7 },
+  { id: "taa", nombre: "Teoría de Aprendizaje Automático", prerequisitos: ["inferencia", "opti", "procdm"], semestre: 7 },
+  { id: "opr2", nombre: "OPR o MINOR", prerequisitos: [], semestre: 7 },
+  { id: "graduacion", nombre: "Proyecto de Graduación", prerequisitos: ["etica", "opti", "taa", "metodos"], semestre: 8 },
+  { id: "opr3", nombre: "OPR o MINOR", prerequisitos: [], semestre: 8 },
+  { id: "opr4", nombre: "OPR o MINOR", prerequisitos: [], semestre: 8 },
+  { id: "opr5", nombre: "OPR o MINOR", prerequisitos: [], semestre: 8 },
 ];
 
 let progreso = JSON.parse(localStorage.getItem("progreso")) || [];
