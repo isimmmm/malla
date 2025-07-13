@@ -1,46 +1,23 @@
-/* Estilo general */
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fdfdfd;
-  color: #333;
-  text-align: center;
-  margin: 0;
-  padding: 0 15px;
-}
-
-h1 {
-  color: #6a1b9a;
-  margin-top: 30px;
-}
-
-/* Botón de reinicio */
-button {
-  background-color: #6a1b9a;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  padding: 10px 20px;
-  font-size: 16px;
-  margin-bottom: 30px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #501674;
-}
-
-/* Contenedor general de la malla */
+/* Contenedor general de todos los años */
 .malla {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 30px auto;
 }
 
-/* Cada semestre */
+/* Cada fila de año académico */
+.anio {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+/* Cada semestre dentro del año */
 .semestre {
-  background-color: #f8f0fc; /* lila clarito */
+  flex: 1;
+  background-color: #f8f0fc;
   border: 2px solid #6a1b9a;
   border-radius: 10px;
   padding: 20px;
@@ -57,32 +34,30 @@ button:hover {
   margin-bottom: 20px;
 }
 
-/* Cursos dentro de un semestre */
+/* Cursos dentro del semestre */
 .cursos-semestre {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 15px;
 }
 
-/* Estilo base para todos los cursos */
+/* Estilo de cada curso */
 .curso {
   padding: 15px;
   border-radius: 10px;
-  border: 2px solid #ccc;
   font-weight: bold;
   transition: all 0.2s ease;
   text-align: center;
 }
 
-/* Cursos bloqueados */
+/* Colores por estado */
 .bloqueado {
   background-color: #e0e0e0;
   color: #999;
-  cursor: not-allowed;
   border: 2px solid #ccc;
+  cursor: not-allowed;
 }
 
-/* Cursos disponibles para cursar */
 .disponible {
   background-color: #ffffff;
   color: #6a1b9a;
@@ -90,10 +65,16 @@ button:hover {
   cursor: pointer;
 }
 
-/* Cursos ya aprobados */
 .aprobado {
   background-color: #e1bee7;
   color: #6a1b9a;
   border: 2px solid #6a1b9a;
   text-decoration: line-through;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .anio {
+    flex-direction: column;
+  }
 }
