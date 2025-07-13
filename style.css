@@ -1,8 +1,11 @@
+/* Estilo general */
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #fdfdfd;
   color: #333;
   text-align: center;
+  margin: 0;
+  padding: 0 15px;
 }
 
 h1 {
@@ -10,23 +13,68 @@ h1 {
   margin-top: 30px;
 }
 
+/* Botón de reinicio */
+button {
+  background-color: #6a1b9a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #501674;
+}
+
+/* Contenedor general de la malla */
 .malla {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1000px;
   margin: 30px auto;
 }
 
+/* Cada semestre */
+.semestre {
+  background-color: #f8f0fc; /* lila clarito */
+  border: 2px solid #6a1b9a;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+}
+
+/* Título de semestre */
+.semestre h2 {
+  margin-top: 0;
+  color: #6a1b9a;
+  font-size: 22px;
+  border-bottom: 1px solid #cbaee0;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+/* Cursos dentro de un semestre */
+.cursos-semestre {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+/* Estilo base para todos los cursos */
 .curso {
   padding: 15px;
   border-radius: 10px;
   border: 2px solid #ccc;
   font-weight: bold;
   transition: all 0.2s ease;
+  text-align: center;
 }
 
-/* Bloqueado */
+/* Cursos bloqueados */
 .bloqueado {
   background-color: #e0e0e0;
   color: #999;
@@ -34,7 +82,7 @@ h1 {
   border: 2px solid #ccc;
 }
 
-/* Disponible para cursar */
+/* Cursos disponibles para cursar */
 .disponible {
   background-color: #ffffff;
   color: #6a1b9a;
@@ -42,7 +90,7 @@ h1 {
   cursor: pointer;
 }
 
-/* Aprobado */
+/* Cursos ya aprobados */
 .aprobado {
   background-color: #e1bee7;
   color: #6a1b9a;
